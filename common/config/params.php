@@ -9,4 +9,5 @@ return [
     'username.max' => 255,
     'username.min' => 2,
     'email.max' => 255,
+    'login.duration' => 60 * 60 * 24 * 30,
 ];
