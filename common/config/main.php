@@ -6,6 +6,7 @@ $params = array_merge(
 
 return [
     'name' => $params['appName'],
+    'language' => 'ru-RU',
     'vendorPath' => dirname(dirname(__DIR__)) . '/vendor',
     'components' => [
         'cache' => [
