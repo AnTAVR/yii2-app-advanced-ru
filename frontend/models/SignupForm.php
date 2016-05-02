@@ -21,19 +21,14 @@ class SignupForm extends Model
     public function rules()
     {
         return [
-            ['username', 'trim'],
-            ['username', 'required'],
-            ['username', 'unique', 'targetClass' => '\common\models\User', 'message' => Yii::t('app', 'This username has already been taken.')],
-            ['username', 'string', 'min' => Yii::$app->params['username.min'], 'max' => Yii::$app->params['username.max']],
-
-            ['email', 'trim'],
-            ['email', 'required'],
-            ['email', 'email'],
+            [['username', 'email'], 'trim'],
+            [['username', 'email', 'password'], 'required'],
             ['email', 'string', 'max' => Yii::$app->params['email.max']],
-            ['email', 'unique', 'targetClass' => '\common\models\User', 'message' => Yii::t('app', 'This email address has already been taken.')],
-
-            ['password', 'required'],
             ['password', 'string', 'min' => Yii::$app->params['password.min']],
+            ['username', 'string', 'min' => Yii::$app->params['username.min'], 'max' => Yii::$app->params['username.max']],
+            ['email', 'email'],
+            ['username', 'unique', 'targetClass' => '\common\models\User', 'message' => Yii::t('app', 'This username has already been taken.')],
+            ['email', 'unique', 'targetClass' => '\common\models\User', 'message' => Yii::t('app', 'This email address has already been taken.')],
         ];
     }
 
