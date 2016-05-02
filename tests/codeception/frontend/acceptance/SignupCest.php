@@ -5,6 +5,7 @@ namespace tests\codeception\frontend\acceptance;
 use yii;
 use tests\codeception\frontend\_pages\SignupPage;
 use common\models\User;
+use frontend\models\SignupForm;
 
 class SignupCest
 {
@@ -43,20 +44,22 @@ class SignupCest
      */
     public function testUserSignup($I, $scenario)
     {
+        $signupForm = new SignupForm();
+
         $I->wantTo('ensure that signup works');
 
         $signupPage = SignupPage::openBy($I);
-        $I->see('Signup', 'h1');
-        $I->see('Please fill out the following fields to signup:');
+        $I->see(Yii::t('app', 'Signup'), 'h1');
+        $I->see(Yii::t('app', 'Please fill out the following fields to signup:'));
 
         $I->amGoingTo('submit signup form with no data');
 
         $signupPage->submit([]);
 
         $I->expectTo('see validation errors');
-        $I->see('Username cannot be blank.', '.help-block');
-        $I->see('Email cannot be blank.', '.help-block');
-        $I->see('Password cannot be blank.', '.help-block');
+        $I->see(Yii::t('yii', '{attribute} cannot be blank.', ['attribute' => $signupForm->getAttributeLabel('username')]), '.help-block');
+        $I->see(Yii::t('yii', '{attribute} cannot be blank.', ['attribute' => $signupForm->getAttributeLabel('email')]), '.help-block');
+        $I->see(Yii::t('yii', '{attribute} cannot be blank.', ['attribute' => $signupForm->getAttributeLabel('password')]), '.help-block');
 
         $I->amGoingTo('submit signup form with not correct email');
         $signupPage->submit([
@@ -66,9 +69,9 @@ class SignupCest
         ]);
 
         $I->expectTo('see that email address is wrong');
-        $I->dontSee('Username cannot be blank.', '.help-block');
-        $I->dontSee('Password cannot be blank.', '.help-block');
-        $I->see('Email is not a valid email address.', '.help-block');
+        $I->dontSee(Yii::t('yii', '{attribute} cannot be blank.', ['attribute' => $signupForm->getAttributeLabel('username')]), '.help-block');
+        $I->dontSee(Yii::t('yii', '{attribute} cannot be blank.', ['attribute' => $signupForm->getAttributeLabel('password')]), '.help-block');
+        $I->see(Yii::t('yii', '{attribute} is not a valid email address.', ['attribute' => $signupForm->getAttributeLabel('email')]), '.help-block');
 
         $I->amGoingTo('submit signup form with correct email');
         $signupPage->submit([
@@ -78,6 +81,6 @@ class SignupCest
         ]);
 
         $I->expectTo('see that user logged in');
-        $I->see('Logout (tester)', 'form button[type=submit]');
+        $I->see(Yii::t('app', 'Logout ({username})', ['username' => 'tester']), 'form button[type=submit]');
     }
 }
