@@ -27,7 +27,7 @@ $I->see(Yii::t('yii', '{attribute} cannot be blank.', ['attribute' => $loginForm
 
 $I->amGoingTo(Yii::t('test', 'try to login with wrong credentials'));
 $I->expectTo(Yii::t('test', 'see validations errors'));
-$loginPage->login('admin', 'wrong');
+$loginPage->login('admin', 'wrong1');
 if (method_exists($I, 'wait')) {
     $I->wait(3); // only for selenium
 }

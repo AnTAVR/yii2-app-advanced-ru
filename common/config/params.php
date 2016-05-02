@@ -5,4 +5,5 @@ return [
     'user.passwordResetTokenExpire' => 3600,
     'brandLabel' => 'My Company',
     'appName' => 'My Application',
+    'password.min' => 6,
 ];

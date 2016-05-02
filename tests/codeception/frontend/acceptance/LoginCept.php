@@ -24,7 +24,7 @@ $I->see(Yii::t('yii', '{attribute} cannot be blank.', ['attribute' => $loginForm
 
 $I->amGoingTo(Yii::t('test', 'try to login with wrong credentials'));
 $I->expectTo(Yii::t('test', 'see validations errors'));
-$loginPage->login('admin', 'wrong');
+$loginPage->login('admin', 'wrong1');
 $I->expectTo(Yii::t('test', 'see validations errors'));
 $I->see(Yii::t('app', 'Incorrect username or password.'), '.help-block');
 
