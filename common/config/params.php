@@ -6,5 +6,7 @@ return [
     'brandLabel' => 'My Company',
     'appName' => 'My Application',
     'password.min' => 6,
+    'username.max' => 255,
+    'username.min' => 2,
     'email.max' => 255,
 ];
