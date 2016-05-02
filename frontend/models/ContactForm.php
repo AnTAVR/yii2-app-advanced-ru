@@ -23,6 +23,7 @@ class ContactForm extends Model
     public function rules()
     {
         return [
+            [['name', 'email', 'subject', 'body'], 'trim'],
             // name, email, subject and body are required
             [['name', 'email', 'subject', 'body'], 'required'],
             ['name', 'string', 'max' => Yii::$app->params['contact.name.max']],

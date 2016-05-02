@@ -22,6 +22,7 @@ class LoginForm extends Model
     public function rules()
     {
         return [
+            ['username', 'trim'],
             // username and password are both required
             [['username', 'password'], 'required'],
             ['password', 'string', 'min' => Yii::$app->params['password.min']],
