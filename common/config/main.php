@@ -5,6 +5,7 @@ $params = array_merge(
 );
 
 return [
+    'name' => $params['appName'],
     'vendorPath' => dirname(dirname(__DIR__)) . '/vendor',
     'components' => [
         'cache' => [
