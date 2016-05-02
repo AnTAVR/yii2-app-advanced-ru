@@ -25,7 +25,10 @@ class ContactForm extends Model
         return [
             // name, email, subject and body are required
             [['name', 'email', 'subject', 'body'], 'required'],
+            ['name', 'string', 'max' => Yii::$app->params['contact.name.max']],
             ['email', 'string', 'max' => Yii::$app->params['email.max']],
+            ['subject', 'string', 'max' => Yii::$app->params['contact.subject.max']],
+            ['body', 'string', 'max' => Yii::$app->params['contact.body.max']],
             // email has to be a valid email address
             ['email', 'email'],
             // verifyCode needs to be entered correctly
