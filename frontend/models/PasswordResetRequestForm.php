@@ -21,6 +21,7 @@ class PasswordResetRequestForm extends Model
         return [
             ['email', 'trim'],
             ['email', 'required'],
+            ['email', 'string', 'max' => Yii::$app->params['email.max']],
             ['email', 'email'],
             ['email', 'exist',
                 'targetClass' => '\common\models\User',
