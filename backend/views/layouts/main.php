@@ -9,6 +9,7 @@ use yii\bootstrap\Nav;
 use yii\bootstrap\NavBar;
 use yii\widgets\Breadcrumbs;
 use common\widgets\Alert;
+use common\widgets\TopLink\TopLink;
 
 AppAsset::register($this);
 ?>
@@ -74,6 +75,8 @@ AppAsset::register($this);
         <p class="pull-right"><?= Yii::powered() ?></p>
     </div>
 </footer>
+
+<?= TopLink::widget() ?>
 
 <?php $this->endBody() ?>
 </body>
