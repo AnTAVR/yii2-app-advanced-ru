@@ -17,8 +17,8 @@
  * NOTE: this file must be saved in UTF-8 encoding.
  */
 return [
-    'A link to reset password will be sent there.' => 'Ссылка для сброса пароля будет отправлена туда.',
     'About' => 'О нас',
+    'A link to reset password will be sent there.' => 'Ссылка для сброса пароля будет отправлена туда.',
     'Body' => 'Сообщение',
     'Check your email for further instructions.' => 'Проверьте свою электронную почту для получения дальнейших инструкций.',
     'Contact' => 'Контакты',
