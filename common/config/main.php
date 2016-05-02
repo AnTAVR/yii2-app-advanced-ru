@@ -12,6 +12,11 @@ return [
                     'basePath' => '@common/messages',
                     //'sourceLanguage' => 'en-US',
                 ],
+                'start' => [
+                    'class' => 'yii\i18n\PhpMessageSource',
+                    'basePath' => '@common/messages',
+                    //'sourceLanguage' => 'en-US',
+                ],
             ],
         ],
     ],
