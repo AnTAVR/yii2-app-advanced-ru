@@ -19,6 +19,15 @@ return [
         'mailer' => [
             'useFileTransport' => true,
         ],
+        'i18n' => [
+            'translations' => [
+                'test' => [
+                    'class' => 'yii\i18n\PhpMessageSource',
+                    'basePath' => '@tests/codeception/common/messages',
+                    //'sourceLanguage' => 'en-US',
+                ],
+            ],
+        ],
         'urlManager' => [
             'showScriptName' => true,
         ],

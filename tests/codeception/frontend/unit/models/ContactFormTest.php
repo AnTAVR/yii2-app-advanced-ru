@@ -39,17 +39,17 @@ class ContactFormTest extends TestCase
 
         $model->sendEmail('admin@example.com');
 
-        $this->specify('email should be send', function () {
-            expect('email file should exist', file_exists($this->getMessageFile()))->true();
+        $this->specify(Yii::t('test', 'email should be send'), function () {
+            expect(Yii::t('test', 'email file should exist'), file_exists($this->getMessageFile()))->true();
         });
 
-        $this->specify('message should contain correct data', function () use ($model) {
+        $this->specify(Yii::t('test', 'message should contain correct data'), function () use ($model) {
             $emailMessage = file_get_contents($this->getMessageFile());
 
-            expect('email should contain user name', $emailMessage)->contains($model->name);
-            expect('email should contain sender email', $emailMessage)->contains($model->email);
-            expect('email should contain subject', $emailMessage)->contains($model->subject);
-            expect('email should contain body', $emailMessage)->contains($model->body);
+            expect(Yii::t('test', 'email should contain user name'), $emailMessage)->contains($model->name);
+            expect(Yii::t('test', 'email should contain sender email'), $emailMessage)->contains($model->email);
+            expect(Yii::t('test', 'email should contain subject'), $emailMessage)->contains($model->subject);
+            expect(Yii::t('test', 'email should contain body'), $emailMessage)->contains($model->body);
         });
     }
 

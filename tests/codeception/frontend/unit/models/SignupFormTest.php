@@ -25,9 +25,9 @@ class SignupFormTest extends DbTestCase
 
         $this->assertInstanceOf('common\models\User', $user, 'user should be valid');
 
-        expect('username should be correct', $user->username)->equals('some_username');
-        expect('email should be correct', $user->email)->equals('some_email@example.com');
-        expect('password should be correct', $user->validatePassword('some_password'))->true();
+        expect(Yii::t('test', 'username should be correct'), $user->username)->equals('some_username');
+        expect(Yii::t('test', 'email should be correct'), $user->email)->equals('some_email@example.com');
+        expect(Yii::t('test', 'password should be correct'), $user->validatePassword('some_password'))->true();
     }
 
     public function testNotCorrectSignup()
@@ -38,7 +38,7 @@ class SignupFormTest extends DbTestCase
             'password' => 'some_password',
         ]);
 
-        expect('username and email are in use, user should not be created', $model->signup())->null();
+        expect(Yii::t('test', 'username and email are in use, user should not be created'), $model->signup())->null();
     }
 
     public function fixtures()

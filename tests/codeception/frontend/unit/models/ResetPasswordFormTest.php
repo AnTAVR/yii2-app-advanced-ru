@@ -29,7 +29,7 @@ class ResetPasswordFormTest extends DbTestCase
     public function testResetCorrectToken()
     {
         $form = new ResetPasswordForm($this->user[0]['password_reset_token']);
-        expect('password should be resetted', $form->resetPassword())->true();
+        expect(Yii::t('test', 'password should be resetted'), $form->resetPassword())->true();
     }
 
     public function fixtures()
