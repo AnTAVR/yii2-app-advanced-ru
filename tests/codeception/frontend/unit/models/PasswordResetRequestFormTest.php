@@ -33,7 +33,7 @@ class PasswordResetRequestFormTest extends DbTestCase
     {
         $this->specify(Yii::t('test', 'no user with such email, message should not be sent'), function () {
 
-            $model = new PasswordResetRequestForm();
+            $model = new PasswordResetRequestForm(['verifyCode' => 'testme']);
             $model->email = 'not-existing-email@example.com';
 
             expect(Yii::t('test', 'email not sent'), $model->sendEmail())->false();
@@ -42,7 +42,7 @@ class PasswordResetRequestFormTest extends DbTestCase
 
         $this->specify(Yii::t('test', 'user is not active, message should not be sent'), function () {
 
-            $model = new PasswordResetRequestForm();
+            $model = new PasswordResetRequestForm(['verifyCode' => 'testme']);
             $model->email = $this->user[1]['email'];
 
             expect(Yii::t('test', 'email not sent'), $model->sendEmail())->false();
@@ -52,7 +52,7 @@ class PasswordResetRequestFormTest extends DbTestCase
 
     public function testSendEmailCorrectUser()
     {
-        $model = new PasswordResetRequestForm();
+        $model = new PasswordResetRequestForm(['verifyCode' => 'testme']);
         $model->email = $this->user[0]['email'];
         $user = User::findOne(['password_reset_token' => $this->user[0]['password_reset_token']]);
 

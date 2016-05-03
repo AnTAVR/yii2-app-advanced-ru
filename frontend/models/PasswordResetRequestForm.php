@@ -11,6 +11,7 @@ use common\models\User;
 class PasswordResetRequestForm extends Model
 {
     public $email;
+    public $verifyCode;
 
 
     /**
@@ -23,6 +24,8 @@ class PasswordResetRequestForm extends Model
             ['email', 'required'],
             ['email', 'string', 'max' => Yii::$app->params['email.max']],
             ['email', 'email'],
+            // verifyCode needs to be entered correctly
+            ['verifyCode', 'captcha'],
             ['email', 'exist',
                 'targetClass' => '\common\models\User',
                 'filter' => ['status' => User::STATUS_ACTIVE],
@@ -38,6 +41,7 @@ class PasswordResetRequestForm extends Model
     {
         return [
             'email' => Yii::t('app', 'Email'),
+            'verifyCode' => Yii::t('app', 'Verification Code'),
         ];
     }
 
