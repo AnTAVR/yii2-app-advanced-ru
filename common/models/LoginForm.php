@@ -12,6 +12,7 @@ class LoginForm extends Model
     public $username;
     public $password;
     public $rememberMe = true;
+    public $verifyCode;
 
     private $_user;
 
@@ -29,6 +30,8 @@ class LoginForm extends Model
             ['username', 'string', 'min' => Yii::$app->params['username.min'], 'max' => Yii::$app->params['username.max']],
             // rememberMe must be a boolean value
             ['rememberMe', 'boolean'],
+            // verifyCode needs to be entered correctly
+            ['verifyCode', 'captcha'],
             // password is validated by validatePassword()
             ['password', 'validatePassword'],
         ];
@@ -43,6 +46,7 @@ class LoginForm extends Model
             'username' => Yii::t('app', 'Username'),
             'password' => Yii::t('app', 'Password'),
             'rememberMe' => Yii::t('app', 'Remember Me'),
+            'verifyCode' => Yii::t('app', 'Verification Code'),
         ];
     }
 
