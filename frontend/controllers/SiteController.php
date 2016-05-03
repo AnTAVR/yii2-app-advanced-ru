@@ -1,7 +1,7 @@
 <?php
 namespace frontend\controllers;
 
-use yii;
+use Yii;
 use yii\base\InvalidParamException;
 use yii\web\BadRequestHttpException;
 use yii\web\Controller;

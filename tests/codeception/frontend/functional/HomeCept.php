@@ -2,7 +2,7 @@
 
 namespace tests\codeception\frontend\functional;
 
-use yii;
+use Yii;
 use tests\codeception\frontend\FunctionalTester;
 
 /* @var $scenario \Codeception\Scenario */

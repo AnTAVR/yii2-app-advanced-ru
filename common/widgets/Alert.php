@@ -7,7 +7,7 @@
 
 namespace common\widgets;
 
-use yii;
+use Yii;
 use yii\bootstrap\Widget;
 use yii\bootstrap\Alert as AlertOld;
 
