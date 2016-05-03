@@ -6,7 +6,7 @@
 
 use yii\helpers\Html;
 use yii\bootstrap\ActiveForm;
-use yii\captcha\Captcha;
+use common\widgets\Captcha;
 
 $this->title = Yii::t('app', 'Login');
 $this->params['breadcrumbs'][] = $this->title;
@@ -26,11 +26,7 @@ $this->params['breadcrumbs'][] = $this->title;
 
                 <?= $form->field($model, 'rememberMe')->checkbox() ?>
 
-                <?= $form->field($model, 'verifyCode')->widget(Captcha::className(), [
-                    'template' => '<div class="row"><div class="col-lg-3">{image}</div><div class="col-lg-6">{input}</div></div>',
-                    'imageOptions' => ['title' => Yii::t('app', 'Get new code'), 'style' => 'cursor: pointer;'],
-                    'options' => ['value' => '', 'class' => 'form-control'],
-                ]) ?>
+                <?= $form->field($model, 'verifyCode')->widget(Captcha::className()) ?>
 
                 <div class="form-group">
                     <?= Html::submitButton(Yii::t('app', 'Send'), ['class' => 'btn btn-primary', 'name' => 'login-button']) ?>
