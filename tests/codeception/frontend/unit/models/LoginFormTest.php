@@ -1,9 +1,9 @@
 <?php
 
-namespace tests\codeception\common\unit\models;
+namespace tests\codeception\frontend\unit\models;
 
 use Yii;
-use tests\codeception\common\unit\DbTestCase;
+use tests\codeception\frontend\unit\DbTestCase;
 use Codeception\Specify;
 use common\models\LoginForm;
 use tests\codeception\common\fixtures\UserFixture;
@@ -41,6 +41,7 @@ class LoginFormTest extends DbTestCase
         $model = new LoginForm([
             'username' => 'not_existing_username',
             'password' => 'not_existing_password',
+            'verifyCode' => 'testme',
         ]);
 
         $this->specify(Yii::t('test', 'user should not be able to login, when there is no identity'), function () use ($model) {
@@ -54,6 +55,7 @@ class LoginFormTest extends DbTestCase
         $model = new LoginForm([
             'username' => 'bayer.hudson',
             'password' => 'wrong_password',
+            'verifyCode' => 'testme',
         ]);
 
         $this->specify(Yii::t('test', 'user should not be able to login with wrong password'), function () use ($model) {
@@ -69,6 +71,7 @@ class LoginFormTest extends DbTestCase
         $model = new LoginForm([
             'username' => 'bayer.hudson',
             'password' => 'password_0',
+            'verifyCode' => 'testme',
         ]);
 
         $this->specify(Yii::t('test', 'user should be able to login with correct credentials'), function () use ($model) {
