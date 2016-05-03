@@ -2,7 +2,7 @@
 
 namespace tests\codeception\frontend\functional;
 
-use yii;
+use Yii;
 use tests\codeception\frontend\FunctionalTester;
 use tests\codeception\common\_pages\LoginPage;
 

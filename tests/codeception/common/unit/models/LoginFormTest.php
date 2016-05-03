@@ -2,7 +2,7 @@
 
 namespace tests\codeception\common\unit\models;
 
-use yii;
+use Yii;
 use tests\codeception\common\unit\DbTestCase;
 use Codeception\Specify;
 use common\models\LoginForm;

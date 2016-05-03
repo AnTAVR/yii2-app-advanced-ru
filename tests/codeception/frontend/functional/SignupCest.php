@@ -2,7 +2,7 @@
 
 namespace tests\codeception\frontend\functional;
 
-use yii;
+use Yii;
 use tests\codeception\frontend\_pages\SignupPage;
 use common\models\User;
 
