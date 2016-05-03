@@ -17,17 +17,18 @@ $I->wantTo(Yii::t('test', 'ensure login page works'));
 $loginPage = LoginPage::openBy($I);
 
 $I->amGoingTo(Yii::t('test', 'submit login form with no data'));
-$loginPage->login('', '');
+$loginPage->login('', '', '');
 if (method_exists($I, 'wait')) {
     $I->wait(3); // only for selenium
 }
 $I->expectTo(Yii::t('test', 'see validations errors'));
 $I->see(Yii::t('yii', '{attribute} cannot be blank.', ['attribute' => $loginForm->getAttributeLabel('username')]), '.help-block');
 $I->see(Yii::t('yii', '{attribute} cannot be blank.', ['attribute' => $loginForm->getAttributeLabel('password')]), '.help-block');
+$I->see(Yii::t('yii', 'The verification code is incorrect.'), '.help-block');
 
 $I->amGoingTo(Yii::t('test', 'try to login with wrong credentials'));
 $I->expectTo(Yii::t('test', 'see validations errors'));
-$loginPage->login('admin', 'wrong1');
+$loginPage->login('admin', 'wrong1', 'testme');
 if (method_exists($I, 'wait')) {
     $I->wait(3); // only for selenium
 }
@@ -35,7 +36,7 @@ $I->expectTo(Yii::t('test', 'see validations errors'));
 $I->see(Yii::t('app', 'Incorrect username or password.'), '.help-block');
 
 $I->amGoingTo(Yii::t('test', 'try to login with correct credentials'));
-$loginPage->login('erau', 'password_0');
+$loginPage->login('erau', 'password_0', 'testme');
 if (method_exists($I, 'wait')) {
     $I->wait(3); // only for selenium
 }
