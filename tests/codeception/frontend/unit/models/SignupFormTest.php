@@ -19,6 +19,7 @@ class SignupFormTest extends DbTestCase
             'username' => 'some_username',
             'email' => 'some_email@example.com',
             'password' => 'some_password',
+            'verifyCode' => 'testme',
         ]);
 
         $user = $model->signup();
@@ -36,6 +37,7 @@ class SignupFormTest extends DbTestCase
             'username' => 'troy.becker',
             'email' => 'nicolas.dianna@hotmail.com',
             'password' => 'some_password',
+            'verifyCode' => 'testme',
         ]);
 
         expect(Yii::t('test', 'username and email are in use, user should not be created'), $model->signup())->null();

@@ -60,24 +60,28 @@ class SignupCest
         $I->see(Yii::t('yii', '{attribute} cannot be blank.', ['attribute' => $signupForm->getAttributeLabel('username')]), '.help-block');
         $I->see(Yii::t('yii', '{attribute} cannot be blank.', ['attribute' => $signupForm->getAttributeLabel('email')]), '.help-block');
         $I->see(Yii::t('yii', '{attribute} cannot be blank.', ['attribute' => $signupForm->getAttributeLabel('password')]), '.help-block');
+        $I->see(Yii::t('yii', 'The verification code is incorrect.'), '.help-block');
 
         $I->amGoingTo(Yii::t('test', 'submit signup form with not correct email'));
         $signupPage->submit([
             'username' => 'tester',
             'email' => 'tester.email',
             'password' => 'tester_password',
+            'verifyCode' => 'testme',
         ]);
 
         $I->expectTo(Yii::t('test', 'see that email address is wrong'));
         $I->dontSee(Yii::t('yii', '{attribute} cannot be blank.', ['attribute' => $signupForm->getAttributeLabel('username')]), '.help-block');
         $I->dontSee(Yii::t('yii', '{attribute} cannot be blank.', ['attribute' => $signupForm->getAttributeLabel('password')]), '.help-block');
         $I->see(Yii::t('yii', '{attribute} is not a valid email address.', ['attribute' => $signupForm->getAttributeLabel('email')]), '.help-block');
+        $I->dontSee(Yii::t('yii', 'The verification code is incorrect.'), '.help-block');
 
         $I->amGoingTo(Yii::t('test', 'submit signup form with correct email'));
         $signupPage->submit([
             'username' => 'tester',
             'email' => 'tester.email@example.com',
             'password' => 'tester_password',
+            'verifyCode' => 'testme',
         ]);
 
         $I->expectTo(Yii::t('test', 'see that user is created'));
