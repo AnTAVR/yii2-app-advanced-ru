@@ -16,13 +16,15 @@ class LoginPage extends BasePage
     /**
      * @param string $username
      * @param string $password
+     * @param string $verifyCode
      */
-    public function login($username, $password)
+    public function login($username, $password, $verifyCode)
     {
         $loginForm = new LoginForm;
 
         $this->actor->fillField('input[name="' . $loginForm->formName() . '[username]"]', $username);
         $this->actor->fillField('input[name="' . $loginForm->formName() . '[password]"]', $password);
+        $this->actor->fillField('input[name="' . $loginForm->formName() . '[verifyCode]"]', $verifyCode);
         $this->actor->click('login-button');
     }
 }
