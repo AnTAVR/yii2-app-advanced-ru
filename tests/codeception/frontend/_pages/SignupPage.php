@@ -19,7 +19,7 @@ class SignupPage extends BasePage
      */
     public function submit(array $signupData)
     {
-        $signupForm = new SignupForm();
+        $signupForm = new SignupForm;
 
         foreach ($signupData as $field => $value) {
             $inputType = $field === 'body' ? 'textarea' : 'input';
