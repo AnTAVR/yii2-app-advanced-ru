@@ -12,6 +12,7 @@ use common\models\User;
 class ResetPasswordForm extends Model
 {
     public $password;
+    public $password_repeat;
 
     /**
      * @var \common\models\User
@@ -44,8 +45,9 @@ class ResetPasswordForm extends Model
     public function rules()
     {
         return [
-            ['password', 'required'],
+            [['password', 'password_repeat'], 'required'],
             ['password', 'string', 'min' => Yii::$app->params['password.min']],
+            ['password_repeat', 'compare', 'compareAttribute' => 'password'],
         ];
     }
 
@@ -56,6 +58,7 @@ class ResetPasswordForm extends Model
     {
         return [
             'password' => Yii::t('app', 'Password'),
+            'password_repeat' => Yii::t('app', 'Repeat password'),
         ];
     }
 

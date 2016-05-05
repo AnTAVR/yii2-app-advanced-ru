@@ -17,7 +17,7 @@
  * NOTE: this file must be saved in UTF-8 encoding.
  */
 return [
-    'Get new code' => 'Получить новый код',
+    'Repeat password' => 'Повтор пароля',
     'A link to reset password will be sent there.' => 'Ссылка для сброса пароля будет отправлена туда.',
     'About' => 'О нас',
     'Body' => 'Сообщение',
@@ -25,6 +25,7 @@ return [
     'Contact' => 'Контакты',
     'Email' => 'Электронная почта',
     'Follow the link below to reset your password:' => 'Перейдите по ссылке ниже, чтобы сбросить пароль:',
+    'Get new code' => 'Получить новый код',
     'Hello {username}' => 'Здравствуйте {username}',
     'If you forgot your password you can' => 'Если забыли свой пароль Вы можете',
     'If you have business inquiries or other questions, please fill out the following form to contact us.' => 'Если у вас есть деловое предложение или другие вопросы, пожалуйста, заполните следующую форму, чтобы связаться с нами.',

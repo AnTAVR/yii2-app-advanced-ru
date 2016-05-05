@@ -19,6 +19,7 @@ class SignupFormTest extends DbTestCase
             'username' => 'some_username',
             'email' => 'some_email@example.com',
             'password' => 'some_password',
+            'password_repeat' => 'some_password',
             'verifyCode' => 'testme',
         ]);
 
@@ -37,6 +38,7 @@ class SignupFormTest extends DbTestCase
             'username' => 'troy.becker',
             'email' => 'nicolas.dianna@hotmail.com',
             'password' => 'some_password',
+            'password_repeat' => 'some_password',
             'verifyCode' => 'testme',
         ]);
 

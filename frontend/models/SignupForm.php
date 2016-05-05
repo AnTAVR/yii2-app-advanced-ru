@@ -13,6 +13,7 @@ class SignupForm extends Model
     public $username;
     public $email;
     public $password;
+    public $password_repeat;
     public $verifyCode;
 
 
@@ -23,11 +24,12 @@ class SignupForm extends Model
     {
         return [
             [['username', 'email'], 'trim'],
-            [['username', 'email', 'password'], 'required'],
+            [['username', 'email', 'password', 'password_repeat'], 'required'],
             ['email', 'string', 'max' => Yii::$app->params['email.max']],
             ['password', 'string', 'min' => Yii::$app->params['password.min']],
             ['username', 'string', 'min' => Yii::$app->params['username.min'], 'max' => Yii::$app->params['username.max']],
             ['email', 'email'],
+            ['password_repeat', 'compare', 'compareAttribute' => 'password'],
             // verifyCode needs to be entered correctly
             ['verifyCode', 'captcha'],
             ['username', 'unique', 'targetClass' => '\common\models\User', 'message' => Yii::t('app', 'This username has already been taken.')],
@@ -44,6 +46,7 @@ class SignupForm extends Model
             'username' => Yii::t('app', 'Username'),
             'email' => Yii::t('app', 'Email'),
             'password' => Yii::t('app', 'Password'),
+            'password_repeat' => Yii::t('app', 'Repeat password'),
             'verifyCode' => Yii::t('app', 'Verification Code'),
         ];
     }
