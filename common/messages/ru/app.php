@@ -46,6 +46,7 @@ return [
     'Request password reset' => 'Запрос сброса пароля',
     'Reset password' => 'Сброс пароля',
     'Send' => 'Отправить',
+    'Set a strong password, use upper and lower case letters, numbers and special characters.' => 'Задайте сложный пароль, используя заглавные и строчные буквы, цифры и специальные символы.',
     'Signup' => 'Регистрация',
     'Sorry, we are unable to reset password for email provided.' => 'К сожалению, мы не можем сбросить пароль для предоставленной электронной почты.',
     'Subject' => 'Тема',

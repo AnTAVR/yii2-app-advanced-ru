@@ -52,6 +52,16 @@ class SignupForm extends Model
     }
 
     /**
+     * @inheritdoc
+     */
+    public function attributeHints()
+    {
+        return [
+            'password' => Yii::t('app', 'Set a strong password, use upper and lower case letters, numbers and special characters.'),
+        ];
+    }
+
+    /**
      * Signs user up.
      *
      * @return User|null the saved model or null if saving fails

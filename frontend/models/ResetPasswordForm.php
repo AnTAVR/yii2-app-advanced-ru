@@ -63,6 +63,16 @@ class ResetPasswordForm extends Model
     }
 
     /**
+     * @inheritdoc
+     */
+    public function attributeHints()
+    {
+        return [
+            'password' => Yii::t('app', 'Set a strong password, use upper and lower case letters, numbers and special characters.'),
+        ];
+    }
+
+    /**
      * Resets password.
      *
      * @return boolean if password was reset.
