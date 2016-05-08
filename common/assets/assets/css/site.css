@@ -171,3 +171,8 @@ a.desc:after {
 .sidebar-module > ul.list-unstyled > li > a:hover {
     border-left-color: #2b9e3e;
 }
+
+div.required label.control-label:after {
+    content: " *";
+    color: red;
+}
